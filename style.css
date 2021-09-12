@@ -1,0 +1,51 @@
+::selection {
+	background: lawngreen;
+	color: whitesmoke;
+}
+
+body {
+	background-color: black;
+	color: whitesmoke;
+	font-size: 30px;
+	font-family: 'Arial', sans-serif;
+}
+
+a {
+	color: whitesmoke;
+	text-decoration-line: none;
+}
+
+a:hover {
+	color: gainsboro;
+}
+
+h1, h2 {
+	font-family: 'Courier New', sans-serif;
+	text-align: center;
+	color: lawngreen;
+}
+
+h1 {
+	font-size: 2.8em;
+	margin-bottom: 0;
+}
+
+h2 {
+	font-size: 0.8em;
+	margin-top: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+body>ul {
+	margin-top: 75px;
+	font-size: 1.1em;
+}
+
+li>ul {
+	padding: 10px 30px;
+	border-left: 2px gray dashed;
+	font-size: 0.8em;
+}
