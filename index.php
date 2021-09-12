@@ -5,27 +5,29 @@
 	<meta charset="utf-8">
 	<title>WEBLAB by Bouhartsev</title>
 	<link rel="stylesheet" href="/style.css">
-	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="shortcut icon" href="//bouhartsev.top/favicon.ico">
 </head>
 <body>
 	<h1>WEBLAB</h1>
-	<h2>by Matvey Bouharstev</h2>
-	<ul>
-		<?php 
-		$courses = scandir('./');
-		sort($courses, SORT_NATURAL | SORT_FLAG_CASE);
-		for ($i=0; $i<count($courses); $i++) {
-			if (is_dir($courses[$i]) && !str_starts_with($courses[$i], '.')) {
-				echo '<li>'.$courses[$i].'<ul>';
-				$labs = scandir('./'.$courses[$i]);
-				sort($labs, SORT_NATURAL | SORT_FLAG_CASE);
-				for ($j=2; $j<count($labs); $j++) {
-					if (is_dir('./'.$courses[$i].'/'.$labs[$j])) echo '<li><a href="./'.$courses[$i].'/'.$labs[$j].'/">'.$labs[$j].'</a></li>';
-				}
-				echo '</ul></li>';
+	<h2>by <a href="https://bouhartsev.top">Matvey Bouharstev</a></h2>
+	<div class="wrapper">
+	<!-- <details> -->
+	<?php 
+	$folders = scandir('./');
+	sort($folders, SORT_NATURAL | SORT_FLAG_CASE);
+	for ($i=0; $i<count($folders); $i++) {
+		if (is_dir($folders[$i]) && $folders[$i][0]!='.') {
+			echo '<details><summary>'.$folders[$i].'</summary><ul>';
+			$subfolders = scandir('./'.$folders[$i]);
+			sort($subfolders, SORT_NATURAL | SORT_FLAG_CASE);
+			for ($j=2; $j<count($subfolders); $j++) {
+				if (is_dir('./'.$folders[$i].'/'.$subfolders[$j])) echo '<li><a href="./'.$folders[$i].'/'.$subfolders[$j].'/">'.$subfolders[$j].'</a></li>';
 			}
+			echo '</ul></details>';
 		}
-		?>
-	</ul>
+	}
+	?>
+	<!-- </details> -->
+	</div>
 </body>
 </html>

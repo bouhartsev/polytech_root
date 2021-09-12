@@ -1,5 +1,5 @@
 ::selection {
-	background: lawngreen;
+	background: rgba(126, 252, 0, 0.404);
 	color: whitesmoke;
 }
 
@@ -42,13 +42,24 @@ ul {
 	list-style: none;
 }
 
-body>ul {
-	margin-top: 75px;
-	font-size: 1.1em;
+.wrapper {
+	padding: 75px 40px;
+	font-size: 1.3em;
 }
 
-li>ul {
+summary::-webkit-details-marker{display:none;}
+summary::-moz-list-bullet{list-style-type:none;}
+summary::marker{display:none;} 
+summary {
+   display: inline-block;
+   /* padding: .3em .5em .3em .4em; */
+   /* font-size:1.4em; */
+   cursor: pointer;
+}
+
+details>ul {
 	padding: 10px 30px;
 	border-left: 2px gray dashed;
 	font-size: 0.8em;
+	margin: 0;
 }
