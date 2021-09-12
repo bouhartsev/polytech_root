@@ -3,9 +3,9 @@
 	
 <head>
 	<meta charset="utf-8">
-	<title>WEBLAB</title>
-	<link rel="stylesheet" href="./style.css">
-	<link rel="shortcut icon" href="./favicon.ico">
+	<title>WEBLAB by Bouhartsev</title>
+	<link rel="stylesheet" href="/style.css">
+	<link rel="shortcut icon" href="/favicon.ico">
 </head>
 <body>
 	<h1>WEBLAB</h1>
@@ -14,8 +14,8 @@
 		<?php 
 		$courses = scandir('./');
 		sort($courses, SORT_NATURAL | SORT_FLAG_CASE);
-		for ($i=2; $i<count($courses); $i++) {
-			if (is_dir($courses[$i])) {
+		for ($i=0; $i<count($courses); $i++) {
+			if (is_dir($courses[$i]) && !str_starts_with($courses[$i], '.')) {
 				echo '<li>'.$courses[$i].'<ul>';
 				$labs = scandir('./'.$courses[$i]);
 				sort($labs, SORT_NATURAL | SORT_FLAG_CASE);
