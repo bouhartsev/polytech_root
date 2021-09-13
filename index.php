@@ -21,12 +21,13 @@
 		$heading = $toFind[1];
 		$folders = scandir('./'.$toFind[1]);
 		for ($i=0; $i<count($folders); $i++) {
-			if ($folders[$i][0]!='.' && is_dir($folders[$i])) {
+			$dir = './'.$toFind[1].'/'.$folders[$i];
+			if ($folders[$i][0]!='.' && is_dir($dir)) {
 				$wrapper.='<details><summary>'.$folders[$i].'</summary><ul>';
-				$subfolders = scandir('./'.$folders[$i]);
+				$subfolders = scandir($dir);
 				sort($subfolders, SORT_NATURAL | SORT_FLAG_CASE);
 				for ($j=2; $j<count($subfolders); $j++) {
-					if (is_dir('./'.$folders[$i].'/'.$subfolders[$j])) $wrapper.='<li><a href="./'.$folders[$i].'/'.$subfolders[$j].'/">'.$subfolders[$j].'</a></li>';
+					if (is_dir($dir.'/'.$subfolders[$j])) $wrapper.='<li><a href="'.$dir.'/'.$subfolders[$j].'/">'.$subfolders[$j].'</a></li>';
 				}
 				$wrapper.='</ul></details>';
 			}
