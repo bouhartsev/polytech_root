@@ -15,14 +15,14 @@
 	$folders = scandir('./');
 	sort($folders, SORT_NATURAL | SORT_FLAG_CASE);
 
-	$toFind = [];
-	preg_match('/\/(.*?)\//', $_SERVER['REQUEST_URI'], $toFind);
-	if (count($toFind) && in_array($toFind[1], $folders)) {
-		$heading = $toFind[1];
-		$folders = scandir('./'.$toFind[1]);
+	$request = [];
+	preg_match('/\/([^\/]*)\/([^\/]*)?\/?/', $_SERVER['REQUEST_URI'], $request);
+	if (count($request) && in_array($request[1], $folders)) {
+		$heading = $request[1];
+		$folders = scandir('./'.$request[1]);
 		for ($i=0; $i<count($folders); $i++) {
-			$dir = './'.$toFind[1].'/'.$folders[$i];
-			if ($folders[$i][0]!='.' && is_dir($dir)) {
+			$dir = './'.$request[1].'/'.$folders[$i];
+			if ($folders[$i][0]!='.' && is_dir($dir) && ($request[2]=='' || $request[2]==$folders[$i])) {
 				$wrapper.='<details><summary>'.$folders[$i].'</summary><ul>';
 				$subfolders = scandir($dir);
 				sort($subfolders, SORT_NATURAL | SORT_FLAG_CASE);

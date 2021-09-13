@@ -11,9 +11,13 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L]
 RewriteCond %{THE_REQUEST} ^(.*)index.(php|html|htm)$
 RewriteRule ^(.*)index.(php|html|htm)$ /$1 [R=301,L]
 
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} ^\/([^\/]*)\/([^\/]*)$
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} ^\/([^\/]*)\/$
 RewriteRule ^(.*) index.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} ^\/([^\/]*)\/([^\/]*)\/$
+RewriteRule ^(.*) index.php [L,NC,NE]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
