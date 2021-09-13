@@ -27,20 +27,18 @@
 				$subfolders = scandir($dir);
 				sort($subfolders, SORT_NATURAL | SORT_FLAG_CASE);
 				for ($j=2; $j<count($subfolders); $j++) {
-					if (is_dir($dir.'/'.$subfolders[$j])) $wrapper.='<li><a href="'.$dir.'/'.$subfolders[$j].'/">'.$subfolders[$j].'</a></li>';
+					if (is_dir($dir.'/'.$subfolders[$j])) $wrapper.='<li><a href="./'.$folders[$i].'/'.$subfolders[$j].'/">'.$subfolders[$j].'</a></li>';
 				}
 				$wrapper.='</ul></details>';
 			}
 		}
 	}
 	else {
-		$wrapper.='<ul>';
 		for ($i=0; $i<count($folders); $i++) {
 			if ($folders[$i][0]!='.' && is_dir($folders[$i])) {
-				$wrapper.='<li><a href="/'.$folders[$i].'/">'.$folders[$i].'</a></li>';
+				$wrapper.='<a href="/'.$folders[$i].'/">'.$folders[$i].'</a>';
 			}
 		}
-		$wrapper.='</ul>';
 	}
 	echo '<h1>'.$heading.'</h1>';
 	echo '<h2>by <a href="https://bouhartsev.top">Matvey Bouharstev</a></h2><div class="wrapper">'.$wrapper.'</div>';

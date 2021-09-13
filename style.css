@@ -14,10 +14,6 @@ a {
 	color: inherit;
 }
 
-ul a {
-	text-decoration-line: none;
-}
-
 a:hover {
 	color: gainsboro;
 }
@@ -48,15 +44,18 @@ ul {
 	font-size: 1.3em;
 }
 
+.wrapper>* {
+	display: block;
+ }
+
+.wrapper a {
+	text-decoration-line: none;
+}
+
 summary::-webkit-details-marker{display:none;}
 summary::-moz-list-bullet{list-style-type:none;}
-summary::marker{display:none;} 
-summary {
-   display: inline-block;
-   /* padding: .3em .5em .3em .4em; */
-   /* font-size:1.4em; */
-   cursor: pointer;
-}
+summary::marker{display:none;}
+summary {cursor: pointer;}
 
 details>ul {
 	padding: 10px 30px;
