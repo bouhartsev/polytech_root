@@ -27,7 +27,7 @@
 				$subfolders = scandir($dir);
 				sort($subfolders, SORT_NATURAL | SORT_FLAG_CASE);
 				for ($j=2; $j<count($subfolders); $j++) {
-					if (is_dir($dir.'/'.$subfolders[$j])) $wrapper.='<li><a href="./'.$folders[$i].'/'.$subfolders[$j].'/">'.$subfolders[$j].'</a></li>';
+					if (is_dir($dir.'/'.$subfolders[$j])) $wrapper.='<li><a href="./'.(($request[2]==$folders[$i])?'':$folders[$i].'/').$subfolders[$j].'/">'.$subfolders[$j].'</a></li>';
 				}
 				$wrapper.='</ul></details>';
 			}
