@@ -44,7 +44,7 @@ ul {
 	font-size: 1.3em;
 }
 
-.wrapper>* {
+.wrapper>*:not(summary) {
 	display: block;
  }
 
@@ -55,7 +55,7 @@ ul {
 summary::-webkit-details-marker{display:none;}
 summary::-moz-list-bullet{list-style-type:none;}
 summary::marker{display:none;}
-summary {cursor: pointer;}
+summary {display:inline-block; cursor:pointer;}
 
 details>ul {
 	padding: 10px 30px;
