@@ -23,7 +23,7 @@
 		for ($i=0; $i<count($folders); $i++) {
 			$dir = './'.$request[1].'/'.$folders[$i];
 			if ($folders[$i][0]!='.' && is_dir($dir) && ($request[2]=='' || $request[2]==$folders[$i])) {
-				$wrapper.='<details><summary>'.$folders[$i].'</summary><ul>';
+				$wrapper.='<details'.(($request[2]==$folders[$i])?' open':'').'><summary>'.$folders[$i].'</summary><ul>';
 				$subfolders = scandir($dir);
 				sort($subfolders, SORT_NATURAL | SORT_FLAG_CASE);
 				for ($j=2; $j<count($subfolders); $j++) {
