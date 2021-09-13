@@ -19,7 +19,7 @@
 	preg_match('/\/(.*?)\//', $_SERVER['REQUEST_URI'], $toFind);
 	if (count($toFind) && in_array($toFind[1], $folders)) {
 		$heading = $toFind[1];
-		$folders = scandir('./'+$toFind[1]);
+		$folders = scandir('./'.$toFind[1]);
 		for ($i=0; $i<count($folders); $i++) {
 			if ($folders[$i][0]!='.' && is_dir($folders[$i])) {
 				$wrapper.='<details><summary>'.$folders[$i].'</summary><ul>';
