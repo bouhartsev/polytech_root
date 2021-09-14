@@ -1,3 +1,3 @@
 # polytech_root
-Root directory for the site
+Root directory for my MosPolytech projects catalog
 polytech.bouhartsev.top
